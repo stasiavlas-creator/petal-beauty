@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V7
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.env
+
+# Editors
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temp / scraping files
+fix_brands.py
+scrape_amazon.py
+scraped_products.csv
+scraped_products.json
+reviews.txt

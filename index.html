@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PETAL — Trending Beauty Products Curated from Pinterest</title>
+  <meta name="description" content="Discover the most-pinned beauty products from Pinterest — serums, lip balms, hair oils and more, all available on Amazon. Updated weekly."/>
+  <meta name="keywords" content="trending beauty products, Pinterest beauty, skincare 2026, Amazon beauty, face care, hair care, body care, bestseller skincare"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://petal-beauty.com/"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website"/>
+  <meta property="og:title"       content="PETAL — Trending Beauty Products Curated from Pinterest"/>
+  <meta property="og:description" content="We scroll Pinterest so you don't have to. The most-pinned beauty products, all shoppable on Amazon in one click."/>
+  <meta property="og:url"         content="https://petal-beauty.com/"/>
+  <meta property="og:image" content="https://petal-beauty.com/images/lip-balms-hero.jpg"/>
+  <meta property="og:site_name"   content="PETAL Beauty"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="PETAL — Trending Beauty Products Curated from Pinterest"/>
+  <meta name="twitter:description" content="We scroll Pinterest so you don't have to. Shop the most-pinned beauty products on Amazon."/>
+  <meta name="twitter:image" content="https://petal-beauty.com/images/lip-balms-hero.jpg"/>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PETAL Beauty",
+    "url": "https://petal-beauty.com",
+    "description": "Beauty affiliate discovery platform. Pinterest-curated products available on Amazon.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://petal-beauty.com/products.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css"/>
+  <!-- Google Analytics GA4 -->
+  <!-- ⚠️ Replace G-XXXXXXXXXX with your real Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="logo" aria-label="PETAL home">PE<span class="logo-slash">/</span>TAL</a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="products.html">All Products</a></li>
+    <li><a href="face.html">Face</a></li>
+    <li><a href="hair.html">Hair</a></li>
+    <li><a href="body.html">Body</a></li>
+    <li><a href="fitness.html">Fitness</a></li>
+    <li><a href="blog/index.html">Blog</a></li>
+  </ul>
+
+  <button class="nav-burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile" id="mobileMenu" role="navigation">
+  <a href="about.html">About</a>
+  <a href="products.html">All Products</a>
+  <a href="face.html">Face</a>
+  <a href="hair.html">Hair</a>
+  <a href="body.html">Body</a>
+  <a href="fitness.html">Fitness</a>
+  <a href="blog/index.html">Blog</a>
+</div>
+
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-inner">
+
+    <!-- LEFT: Headline + CTA + Mini Cards -->
+    <div class="hero-text">
+      <span class="hero-eyebrow">We scroll Pinterest so you don't have to</span>
+      <h1>The most-pinned<br>beauty products —<br>all on Amazon.</h1>
+      <p class="hero-sub">PETAL scans thousands of Pinterest boards and handpicks the top trending beauty products. Every pick links straight to Amazon — no searching, no scrolling, one click to shop.</p>
+      <div class="hero-cta-row">
+        <a href="products.html" class="hero-pill-cta">All Products</a>
+      </div>
+
+      <!-- 3 featured product mini-cards -->
+      <div class="hero-mini-cards">
+
+        <a href="face.html" class="hero-mini-card">
+          <div class="hero-mini-img">
+            <img src="images/sundayriley.png" alt="Summer Fridays Tinted Lip Butter Balm"/>
+          </div>
+          <div class="hero-mini-info">
+            <span class="hero-mini-tag tag-trending">Trending</span>
+            <div class="hero-mini-brand">Summer Fridays</div>
+            <div class="hero-mini-name">Tinted Lip Butter Balm</div>
+          </div>
+        </a>
+
+        <a href="face.html" class="hero-mini-card">
+          <div class="hero-mini-img">
+            <img src="images/365.png" alt="Dr. Althea 345 Relief Cream"/>
+          </div>
+          <div class="hero-mini-info">
+            <span class="hero-mini-tag tag-bestseller">Best Seller</span>
+            <div class="hero-mini-brand">Dr. Althea</div>
+            <div class="hero-mini-name">345 Relief Cream</div>
+          </div>
+        </a>
+
+        <a href="face.html" class="hero-mini-card">
+          <div class="hero-mini-img">
+            <img src="images/medicube.png" alt="Medicube Collagen Jelly Cream"/>
+          </div>
+          <div class="hero-mini-info">
+            <span class="hero-mini-tag tag-trending">Trending</span>
+            <div class="hero-mini-brand">Medicube</div>
+            <div class="hero-mini-name">Collagen Jelly Cream</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: Editorial hero photos -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-duo-imgs">
+        <div class="hero-editorial-img">
+          <img src="images/main_1.jpg" alt="" loading="eager"/>
+        </div>
+        <div class="hero-editorial-img hero-editorial-img--offset">
+          <img src="images/main_2.jpg" alt="" loading="eager"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════ MARQUEE ════════════════ -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Trending on Pinterest</span><span class="dot">·</span>
+    <span>Shoppable on Amazon</span><span class="dot">·</span>
+    <span>83 Handpicked Products</span><span class="dot">·</span>
+    <span>Face · Hair · Body · Fitness</span><span class="dot">·</span>
+    <span>No searching. Just shopping.</span><span class="dot">·</span>
+    <span>Updated Weekly</span><span class="dot">·</span>
+    <span>Trending on Pinterest</span><span class="dot">·</span>
+    <span>Shoppable on Amazon</span><span class="dot">·</span>
+    <span>83 Handpicked Products</span><span class="dot">·</span>
+    <span>Face · Hair · Body · Fitness</span><span class="dot">·</span>
+    <span>No searching. Just shopping.</span><span class="dot">·</span>
+    <span>Updated Weekly</span><span class="dot">·</span>
+  </div>
+</div>
+
+
+<!-- ════════════════ HOW IT WORKS ════════════════ -->
+<section class="section section-surface how-it-works" aria-labelledby="how-title">
+  <div class="sec-head container">
+    <span class="eyebrow">How it works</span>
+    <h2 id="how-title">Beauty trends, <em>delivered</em></h2>
+    <p class="sec-sub">No more endless scrolling. We do the research — you do the shopping.</p>
+  </div>
+  <div class="how-steps container">
+    <div class="how-step">
+      <span class="how-num">01</span>
+      <h3>We track Pinterest</h3>
+      <p>Our team scans thousands of boards daily to find what beauty lovers are actually saving right now.</p>
+    </div>
+    <div class="how-step">
+      <span class="how-num">02</span>
+      <h3>We handpick the best</h3>
+      <p>Only top-rated, genuinely trending products make the cut — organised by Face, Hair, Body & Fitness.</p>
+    </div>
+    <div class="how-step">
+      <span class="how-num">03</span>
+      <h3>You shop on Amazon</h3>
+      <p>Every product links directly to Amazon. One click to buy — no extra searching needed.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════ SHOP BY NEED ════════════════ -->
+<section class="section section-surface" aria-labelledby="categories-title">
+  <div class="sec-head container">
+    <span class="eyebrow">Explore Categories</span>
+    <h2 id="categories-title">Shop by <em>need</em></h2>
+    <p class="sec-sub">From skincare routines to body rituals — discover what Pinterest is obsessing over right now.</p>
+  </div>
+
+  <div class="cat-grid">
+    <a href="face.html" class="cat-tile" aria-label="Shop Face">
+      <div class="cat-tile-img">
+        <img src="images/face.jpg" alt="Face" loading="lazy"/>
+      </div>
+      <div class="cat-tile-overlay">
+        <div class="cat-tile-name">Face</div>
+        <div class="cat-tile-cta">Explore →</div>
+      </div>
+    </a>
+    <a href="hair.html" class="cat-tile" aria-label="Shop Hair">
+      <div class="cat-tile-img">
+        <img src="images/hair.jpg" alt="Hair" loading="lazy"/>
+      </div>
+      <div class="cat-tile-overlay">
+        <div class="cat-tile-name">Hair</div>
+        <div class="cat-tile-cta">Explore →</div>
+      </div>
+    </a>
+    <a href="body.html" class="cat-tile" aria-label="Shop Body">
+      <div class="cat-tile-img">
+        <img src="images/body.jpg" alt="Body" loading="lazy"/>
+      </div>
+      <div class="cat-tile-overlay">
+        <div class="cat-tile-name">Body</div>
+        <div class="cat-tile-cta">Explore →</div>
+      </div>
+    </a>
+    <a href="fitness.html" class="cat-tile" aria-label="Shop Fitness">
+      <div class="cat-tile-img">
+        <img src="images/fitness.jpg" alt="Fitness" loading="lazy"/>
+      </div>
+      <div class="cat-tile-overlay">
+        <div class="cat-tile-name">Fitness</div>
+        <div class="cat-tile-cta">Explore →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<!-- ════════════════ TRENDING ON PINTEREST ════════════════ -->
+<section class="section" aria-labelledby="trending-title">
+  <div class="sec-head container">
+    <span class="eyebrow">Trending on Pinterest</span>
+    <h2 id="trending-title">What the boards are <em>saving</em></h2>
+    <p class="sec-sub">The most-pinned beauty products this season — curated for taste, not just volume.</p>
+  </div>
+
+  <div class="carousel-wrap">
+    <button class="carousel-btn carousel-btn-prev" id="trendPrev" aria-label="Previous">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="carousel-row" id="trendingRow"><!-- JS --></div>
+    <button class="carousel-btn carousel-btn-next" id="trendNext" aria-label="Next">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+
+<!-- ════════════════ BEST SELLERS ════════════════ -->
+<section class="section section-lavender-bg" aria-labelledby="bestsellers-title">
+  <div class="sec-head container">
+    <span class="eyebrow">Best Sellers</span>
+    <h2 id="bestsellers-title">The ones everyone <em>loves</em></h2>
+    <p class="sec-sub">Consistently top-rated, reviewed by thousands, and genuinely worth every penny.</p>
+  </div>
+
+  <div class="carousel-wrap">
+    <button class="carousel-btn carousel-btn-prev" id="bsPrev" aria-label="Previous">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="carousel-row" id="bestSellersRow"><!-- JS --></div>
+    <button class="carousel-btn carousel-btn-next" id="bsNext" aria-label="Next">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+
+<!-- ════════════════ UNDER $25 ════════════════ -->
+<section class="section section-blush" aria-labelledby="under25-title">
+  <div class="sec-head container">
+    <span class="eyebrow">Under $25</span>
+    <h2 id="under25-title">Beautiful doesn't have to mean <em>expensive</em></h2>
+    <p class="sec-sub">Accessible beauty that punches well above its price point — all under $25.</p>
+  </div>
+
+  <div class="carousel-wrap">
+    <button class="carousel-btn carousel-btn-prev" id="u25Prev" aria-label="Previous">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="carousel-row" id="under25Row"><!-- JS --></div>
+    <button class="carousel-btn carousel-btn-next" id="u25Next" aria-label="Next">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+
+<!-- ════════════════ EDITORIAL PICKS ════════════════ -->
+<section class="section section-surface" aria-labelledby="editorial-title">
+  <div class="sec-head container">
+    <span class="eyebrow">Editorial Picks</span>
+    <h2 id="editorial-title">Curated <em>guides</em> & lists</h2>
+    <p class="sec-sub">Our editors analyse Pinterest trends to bring you the best curated beauty lists of 2026.</p>
+  </div>
+
+  <div class="editorial-grid">
+
+    <a href="blog/lip-balms-2026.html" class="editorial-card reveal">
+      <div class="editorial-img">
+        <img src="images/lip-balms-hero.jpg" alt="Lip balm editorial" loading="lazy"/>
+      </div>
+      <div class="editorial-body">
+        <span class="editorial-label">Trending · Face</span>
+        <div class="editorial-title">Top 10 Lip Balms Trending on Pinterest 2026</div>
+        <div class="editorial-desc">From glossy glass-lip formulas to tinted SPF balms — these are the lip products Pinterest can't stop saving this year.</div>
+        <span class="editorial-link">Read the list</span>
+      </div>
+    </a>
+
+    <a href="blog/hair-growth-oils.html" class="editorial-card reveal">
+      <div class="editorial-img">
+        <img src="images/hairoilshero.png" alt="Hair growth oils editorial" loading="lazy"/>
+      </div>
+      <div class="editorial-body">
+        <span class="editorial-label">Trending · Hair</span>
+        <div class="editorial-title">Best Hair Growth Oils Pinterest Loves Right Now</div>
+        <div class="editorial-desc">Rosemary, castor, and beyond — discover the scalp oils that Pinterest boards are obsessing over for longer, thicker hair.</div>
+        <span class="editorial-link">Read the list</span>
+      </div>
+    </a>
+
+    <a href="blog/body-glow-2026.html" class="editorial-card reveal">
+      <div class="editorial-img">
+        <img src="images/bodycreamshero.png" alt="Body glow editorial" loading="lazy"/>
+      </div>
+      <div class="editorial-body">
+        <span class="editorial-label">Trending · Body</span>
+        <div class="editorial-title">Trending Body Glow Products for Summer 2026</div>
+        <div class="editorial-desc">From shimmery body oils to glass-skin lotions — the body care products Pinterest is pinning for a radiant summer glow.</div>
+        <span class="editorial-link">Read the list</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">PE<span class="logo-slash">/</span>TAL</a>
+      <p>Beauty discovery, Pinterest-curated. We find the trending products — you shop them on Amazon in one click.</p>
+    </div>
+
+    <nav class="footer-col" aria-label="Shop">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="products.html">All Products</a></li>
+        <li><a href="face.html">Face</a></li>
+        <li><a href="hair.html">Hair</a></li>
+        <li><a href="body.html">Body</a></li>
+        <li><a href="fitness.html">Fitness</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-col" aria-label="Info">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="about.html">About PETAL</a></li>
+        <li><a href="about.html#contact">Contact</a></li>
+        <li><a href="about.html#affiliate">Affiliate Disclosure</a></li>
+        <li><a href="about.html#privacy">Privacy Policy</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <!-- Pinterest -->
+        <a href="#" class="social-icon" aria-label="Pinterest" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.641 1.267 1.408 0 .858-.546 2.141-.828 3.329-.236.995.499 1.806 1.476 1.806 1.77 0 3.133-1.866 3.133-4.558 0-2.383-1.714-4.05-4.161-4.05-2.834 0-4.498 2.126-4.498 4.322 0 .856.33 1.773.741 2.274a.3.3 0 01.069.286c-.076.315-.244.995-.277 1.134-.044.183-.146.222-.336.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.938.29 1.931.446 2.962.446 5.522 0 10-4.477 10-10S17.522 2 12 2z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" class="social-icon" aria-label="Instagram" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="#" class="social-icon" aria-label="TikTok" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z"/>
+          </svg>
+        </a>
+      </div>
+      <p class="footer-tagline">Curated with love.<br>Pinned with intention.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-disclaimer">PETAL is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon Associate we earn from qualifying purchases.</p>
+    <p class="footer-copy">&copy; 2026 PETAL Beauty</p>
+  </div>
+</footer>
+
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    /* Trending carousel */
+    fillGrid('trendingRow', getTrending());
+    initCarousel('trendingRow', 'trendPrev', 'trendNext');
+
+    /* Best Sellers carousel */
+    fillGrid('bestSellersRow', getBestSellers());
+    initCarousel('bestSellersRow', 'bsPrev', 'bsNext');
+
+    /* Under $25 carousel */
+    fillGrid('under25Row', getUnder25());
+    initCarousel('under25Row', 'u25Prev', 'u25Next');
+
+  });
+</script>
+
+</body>
+</html>
