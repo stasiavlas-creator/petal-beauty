@@ -55,6 +55,33 @@ function amazonUrl(name) {
 }
 
 
+/* ── ANALYTICS ───────────────────────────────────────── */
+function trackAmazonClick(id, name, category, price) {
+  if (typeof gtag === 'undefined') return;
+  gtag('event', 'amazon_click', {
+    product_id:       id,
+    product_name:     name,
+    product_category: category,
+    product_price:    price,
+    currency:         'USD'
+  });
+}
+
+// Track Pinterest UTM source on page load
+(function trackPinterestSource() {
+  if (typeof gtag === 'undefined') return;
+  const params = new URLSearchParams(window.location.search);
+  const source  = params.get('utm_source');
+  const content = params.get('utm_content'); // Pinterest account name
+  if (source === 'pinterest' && content) {
+    gtag('event', 'pinterest_referral', {
+      pinterest_account: content,
+      landing_page:      window.location.pathname
+    });
+  }
+})();
+
+
 /* ── CARD BUILDER ────────────────────────────────────── */
 function buildCard(p) {
   const primaryTag = p.tags[0] || '';
@@ -93,7 +120,8 @@ function buildCard(p) {
        target="_blank"
        rel="noopener sponsored"
        class="btn-amazon"
-       aria-label="Shop ${p.name} on Amazon">
+       aria-label="Shop ${p.name} on Amazon"
+       onclick="trackAmazonClick('${p.id}','${p.name.replace(/'/g,"\\'")}','${p.category}',${p.price})">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
         <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
         <polyline points="15 3 21 3 21 9"/>
