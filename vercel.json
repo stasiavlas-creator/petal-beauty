@@ -35,5 +35,13 @@
     { "source": "/wellness-tech/", "destination": "/wellness-tech/index.html" },
     { "source": "/de/wellness-tech", "destination": "/de/wellness-tech/index.html" },
     { "source": "/de/wellness-tech/", "destination": "/de/wellness-tech/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.petalfinds.beauty" }],
+      "destination": "https://petalfinds.beauty/:path*",
+      "permanent": true
+    }
   ]
 }
