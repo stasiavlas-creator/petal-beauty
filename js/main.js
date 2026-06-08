@@ -81,6 +81,39 @@ function trackAmazonClick(id, name, category, price) {
   }
 })();
 
+// Track every affiliate click (product cards, blog buttons, RingConn CTAs —
+// all share rel="sponsored"). Delegated so dynamically-built cards are covered.
+document.addEventListener('click', function (e) {
+  const link = e.target.closest('a[rel~="sponsored"]');
+  if (!link) return;
+  if (typeof gtag === 'function') gtag('event', 'affiliate_click');
+  if (window.umami && typeof window.umami.track === 'function') {
+    window.umami.track('affiliate_click');
+  }
+});
+
+// Prefetch internal pages on hover (conservative). Skips query strings,
+// nofollow/sponsored, and .no-prefetch. No-op on unsupported browsers.
+(function injectSpeculationRules() {
+  if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('speculationrules')) return;
+  const s = document.createElement('script');
+  s.type = 'speculationrules';
+  s.textContent = JSON.stringify({
+    prefetch: [{
+      source: 'document',
+      where: { and: [
+        { href_matches: '/*' },
+        { not: { href_matches: '/*\\?(.+)' } },
+        { not: { selector_matches: 'a[rel~="nofollow"]' } },
+        { not: { selector_matches: 'a[rel~="sponsored"]' } },
+        { not: { selector_matches: '.no-prefetch, .no-prefetch a' } }
+      ] },
+      eagerness: 'conservative'
+    }]
+  });
+  document.body.appendChild(s);
+})();
+
 
 /* ── CARD BUILDER ────────────────────────────────────── */
 function buildCard(p) {
