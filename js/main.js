@@ -81,15 +81,24 @@ function trackAmazonClick(id, name, category, price) {
   }
 })();
 
-// Track every affiliate click (product cards, blog buttons, RingConn CTAs —
-// all share rel="sponsored"). Delegated so dynamically-built cards are covered.
+// Affiliate-click tracking for all sponsored links (product cards, blog
+// buttons, RingConn CTAs — all share rel="sponsored").
+//
+// Umami: handled NATIVELY via the data-umami-event attribute. Umami's own
+// built-in click listener reads that attribute and sends the event with
+// keepalive and correct target=_blank handling. Product cards get the
+// attribute in buildCard(); static links are tagged by tagAffiliateLinks().
+function tagAffiliateLinks(root) {
+  (root || document)
+    .querySelectorAll('a[rel~="sponsored"]:not([data-umami-event])')
+    .forEach(a => a.setAttribute('data-umami-event', 'affiliate_click'));
+}
+
+// GA has no auto-tracking, so fire affiliate_click from a delegated listener.
 document.addEventListener('click', function (e) {
   const link = e.target.closest('a[rel~="sponsored"]');
   if (!link) return;
   if (typeof gtag === 'function') gtag('event', 'affiliate_click');
-  if (window.umami && typeof window.umami.track === 'function') {
-    window.umami.track('affiliate_click');
-  }
 });
 
 // Prefetch internal pages on hover (conservative). Skips query strings,
@@ -153,6 +162,7 @@ function buildCard(p) {
        target="_blank"
        rel="noopener sponsored"
        class="btn-amazon"
+       data-umami-event="affiliate_click"
        aria-label="Shop ${p.name} on Amazon"
        onclick="trackAmazonClick('${p.id}','${p.name.replace(/'/g,"\\'")}','${p.category}',${p.price})">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
@@ -343,4 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Start scroll reveal for any static .reveal elements
   observeReveal();
+
+  // Tag static affiliate links (blog, RingConn) for Umami native tracking
+  tagAffiliateLinks();
 });
