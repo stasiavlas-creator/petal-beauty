@@ -189,10 +189,10 @@ const QUESTIONS = [
     id: 'q8', kind: 'mood', prompt: 'Pick your vibe',
     note: 'Trust your gut — this one counts double.',
     options: [
-      { id: 'q8a', label: 'Chrome, gloss, mirror, ice',             img: 'images/quiz/chromeskin.png', pal: ['#EAF2F6', '#C8DEE9', '#5E8AA3'], trends: { 'glass-skin': 2, 'cloud-skin': 1 } },
-      { id: 'q8b', label: 'Honey, glazed donut, golden hour',       img: 'images/quiz/honeyskin.png', pal: ['#F7EAD9', '#EACBA0', '#A9743C'], trends: { 'glazed-donut': 2, 'latte-skin': 1 } },
-      { id: 'q8c', label: 'Linen, oat, calm minimal',               img: 'images/quiz/linenskin.png', pal: ['#F4F2EE', '#DCDAD4', '#8FB3A2'], trends: { 'slugging': 2, 'cica-repair': 1 } },
-      { id: 'q8d', label: 'Lab coats, actives, before-and-afters',  img: 'images/quiz/labskin.png', pal: ['#E8ECF2', '#B9C6D8', '#28406B'], trends: { 'skin-cycling': 2, 'vitamin-c-glow': 1, 'retinol-bounce': 1 } },
+      { id: 'q8a', label: 'Chrome, gloss, mirror, ice',             img: 'images/quiz/chromeskin.jpg', pal: ['#EAF2F6', '#C8DEE9', '#5E8AA3'], trends: { 'glass-skin': 2, 'cloud-skin': 1 } },
+      { id: 'q8b', label: 'Honey, glazed donut, golden hour',       img: 'images/quiz/honeyskin.jpg', pal: ['#F7EAD9', '#EACBA0', '#A9743C'], trends: { 'glazed-donut': 2, 'latte-skin': 1 } },
+      { id: 'q8c', label: 'Linen, oat, calm minimal',               img: 'images/quiz/linenskin.jpg', pal: ['#F4F2EE', '#DCDAD4', '#8FB3A2'], trends: { 'slugging': 2, 'cica-repair': 1 } },
+      { id: 'q8d', label: 'Lab coats, actives, before-and-afters',  img: 'images/quiz/labskin.jpg', pal: ['#E8ECF2', '#B9C6D8', '#28406B'], trends: { 'skin-cycling': 2, 'vitamin-c-glow': 1, 'retinol-bounce': 1 } },
     ],
   },
 ];
@@ -433,7 +433,7 @@ function quizTrack(event, data) {
       const grad = `linear-gradient(135deg, ${t.palette[0]} 0%, ${t.palette[1]} 55%, ${t.palette[2]} 100%)`;
       return `<div class="quiz-stack-item${i === 0 ? ' is-top' : ''}">
           <span class="quiz-stack-rank">${String(i + 1).padStart(2, '0')}</span>
-          <span class="quiz-stack-swatch" style="background:${grad}"><img src="images/quiz/${t.id}.png" alt="" loading="lazy"/></span>
+          <span class="quiz-stack-swatch" style="background:${grad}"><img src="images/quiz/${t.id}.jpg" alt="" loading="lazy"/></span>
           <span class="quiz-stack-text">
             <span class="quiz-stack-name">${t.name}${i === 0 ? '<span class="quiz-stack-flag">Top match</span>' : ''}</span>
             <span class="quiz-stack-tag">${t.tagline}</span>
@@ -527,7 +527,7 @@ function quizTrack(event, data) {
     const stackRows = r.stack.map((t, i) => {
       const grad = `linear-gradient(135deg, ${t.palette[0]} 0%, ${t.palette[1]} 55%, ${t.palette[2]} 100%)`;
       return `<div class="share-card-stack-row">
-          <span class="share-card-stack-sw" style="background:${grad}"><img src="images/quiz/${t.id}.png" alt=""/></span>
+          <span class="share-card-stack-sw" style="background:${grad}"><img src="images/quiz/${t.id}.jpg" alt=""/></span>
           <span class="share-card-stack-nm">${String(i + 1).padStart(2, '0')} · ${t.name}</span>
         </div>`;
     }).join('');
