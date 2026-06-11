@@ -344,8 +344,11 @@ function buildBrandFilters(category) {
 function initTrendToast() {
   // Don't show on the quiz page itself
   if (document.body.classList.contains('quiz-body')) return;
-  // Respect dismissal
-  try { if (localStorage.getItem('petal_quiz_toast_dismissed') === '1') return; } catch (e) {}
+  // Snooze after dismissal, but re-show after a few days (not forever)
+  try {
+    var until = parseInt(localStorage.getItem('petal_quiz_toast_snooze') || '0', 10);
+    if (until && Date.now() < until) return;
+  } catch (e) {}
   // Avoid duplicates (e.g. a page that still has an inline toast)
   if (document.getElementById('quizToast')) return;
 
@@ -375,7 +378,8 @@ function initTrendToast() {
   function dismiss() {
     clearTimeout(show);
     toast.classList.remove('show');
-    try { localStorage.setItem('petal_quiz_toast_dismissed', '1'); } catch (e) {}
+    // hide for 3 days, then it can appear again
+    try { localStorage.setItem('petal_quiz_toast_snooze', String(Date.now() + 3 * 24 * 60 * 60 * 1000)); } catch (e) {}
   }
   document.getElementById('quizToastClose').addEventListener('click', dismiss);
   toast.querySelector('.quiz-toast-link').addEventListener('click', dismiss);
