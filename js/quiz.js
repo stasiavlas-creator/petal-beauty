@@ -526,8 +526,12 @@ function quizTrack(event, data) {
 
     const stackRows = r.stack.map((t, i) => {
       const grad = `linear-gradient(135deg, ${t.palette[0]} 0%, ${t.palette[1]} 55%, ${t.palette[2]} 100%)`;
+      // Use a CSS background-image (not <img>): iOS Safari does not rasterise
+      // <img> inside the SVG foreignObject html-to-image uses, so photos went
+      // missing in the exported card. Background images DO render there.
+      const sw = `background-image:url('images/quiz/${t.id}.jpg'), ${grad};background-size:cover;background-position:50% 28%;`;
       return `<div class="share-card-stack-row">
-          <span class="share-card-stack-sw" style="background:${grad}"><img src="images/quiz/${t.id}.jpg" alt=""/></span>
+          <span class="share-card-stack-sw" style="${sw}"></span>
           <span class="share-card-stack-nm">${String(i + 1).padStart(2, '0')} · ${t.name}</span>
         </div>`;
     }).join('');
