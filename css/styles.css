@@ -1361,9 +1361,6 @@ input, select, textarea { font-family: var(--sans); }
   .product-card { width: calc(100vw - 60px); max-width: 300px; }
   .carousel-wrap { padding: 0 4px; }
 
-  /* Cat tiles */
-  .cat-tile-img { height: 140px; }
-
   /* Sections */
   .section { padding: 36px 0; }
   .sec-head h2 { font-size: 22px; }
