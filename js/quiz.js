@@ -75,7 +75,7 @@ const TRENDS = {
   },
   'cloud-skin': {
     id: 'cloud-skin', name: 'Cloud Skin',
-    palette: ['#ECE8E4', '#C9BEB4', '#6E6660', '#2E2B28'],
+    palette: ['#F3EEF7', '#E0D2EC', '#BFA2D6', '#9470B4'],
     tagline: 'Soft-matte, blurred, never greasy.',
     blurb: 'The anti-dewy finish — airbrushed and balanced, all glow with none of the shine.',
     bestFor: 'oily & combination skin',
@@ -527,7 +527,7 @@ function quizTrack(event, data) {
     const stackRows = r.stack.map((t, i) => {
       const grad = `linear-gradient(135deg, ${t.palette[0]} 0%, ${t.palette[1]} 55%, ${t.palette[2]} 100%)`;
       return `<div class="share-card-stack-row">
-          <span class="share-card-stack-sw" style="background:${grad}"><img src="images/quiz/${t.id}.png" alt="" crossorigin="anonymous"/></span>
+          <span class="share-card-stack-sw" style="background:${grad}"><img src="images/quiz/${t.id}.png" alt=""/></span>
           <span class="share-card-stack-nm">${String(i + 1).padStart(2, '0')} · ${t.name}</span>
         </div>`;
     }).join('');
@@ -560,6 +560,11 @@ function quizTrack(event, data) {
     // document flow. A fixed, off-screen node (left:-99999px) exports as just
     // the background. Temporarily drop it into flow (off the bottom of the
     // page), capture, then restore — body overflow:hidden hides the reflow.
+    // Make sure every card image is fully decoded before capture, otherwise
+    // html-to-image renders the gradient fallback instead of the photo.
+    await Promise.all([...node.querySelectorAll('img')].map((im) =>
+      (im.complete && im.naturalWidth) ? Promise.resolve() : im.decode().catch(() => {})
+    ));
     const prevCss = node.style.cssText;
     const prevOverflow = document.body.style.overflow;
     node.style.position = 'relative';
@@ -567,7 +572,9 @@ function quizTrack(event, data) {
     node.style.top = 'auto';
     document.body.style.overflow = 'hidden';
     try {
-      return await window.htmlToImage.toPng(node, { width: 1080, height: 1920, pixelRatio: 1, cacheBust: true });
+      // No cacheBust: reuse the already-loaded same-origin images so the export
+      // doesn't re-download ~2MB each (which intermittently dropped photos).
+      return await window.htmlToImage.toPng(node, { width: 1080, height: 1920, pixelRatio: 1 });
     } finally {
       node.style.cssText = prevCss;
       document.body.style.overflow = prevOverflow;
