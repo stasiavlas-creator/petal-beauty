@@ -340,6 +340,48 @@ function buildBrandFilters(category) {
 }
 
 
+/* ── TREND MATCHER TOAST (site-wide, bottom-left) ─────── */
+function initTrendToast() {
+  // Don't show on the quiz page itself
+  if (document.body.classList.contains('quiz-body')) return;
+  // Respect dismissal
+  try { if (localStorage.getItem('petal_quiz_toast_dismissed') === '1') return; } catch (e) {}
+  // Avoid duplicates (e.g. a page that still has an inline toast)
+  if (document.getElementById('quizToast')) return;
+
+  // Reuse the nav's relative path to skin-quiz so it works in any directory
+  const navLink = document.querySelector('.nav-quiz');
+  const href = (navLink && navLink.getAttribute('href')) || 'skin-quiz.html';
+
+  const toast = document.createElement('div');
+  toast.className = 'quiz-toast';
+  toast.id = 'quizToast';
+  toast.setAttribute('role', 'dialog');
+  toast.setAttribute('aria-label', 'Skin Trend Matcher');
+  toast.innerHTML =
+    '<button class="quiz-toast-close" id="quizToastClose" aria-label="Dismiss">&times;</button>' +
+    '<a href="' + href + '" class="quiz-toast-link" data-umami-event="quiz_toast_click">' +
+      '<span class="quiz-toast-swatch" aria-hidden="true"></span>' +
+      '<span class="quiz-toast-body">' +
+        '<span class="quiz-toast-eyebrow">60-second matcher</span>' +
+        '<span class="quiz-toast-title">Which skin trends suit you?</span>' +
+        '<span class="quiz-toast-text">Find the viral trends that fit your skin + a shoppable stack.</span>' +
+        '<span class="quiz-toast-cta">Match my skin &rarr;</span>' +
+      '</span>' +
+    '</a>';
+  document.body.appendChild(toast);
+
+  const show = setTimeout(function () { toast.classList.add('show'); }, 5000);
+  function dismiss() {
+    clearTimeout(show);
+    toast.classList.remove('show');
+    try { localStorage.setItem('petal_quiz_toast_dismissed', '1'); } catch (e) {}
+  }
+  document.getElementById('quizToastClose').addEventListener('click', dismiss);
+  toast.querySelector('.quiz-toast-link').addEventListener('click', dismiss);
+}
+
+
 /* ── DOM READY ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   // Mark active nav link
@@ -356,4 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Tag static affiliate links (blog, RingConn) for Umami native tracking
   tagAffiliateLinks();
+
+  // Site-wide Trend Matcher toast (bottom-left)
+  initTrendToast();
 });

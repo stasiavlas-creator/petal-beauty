@@ -28,6 +28,9 @@ build/
 *.swo
 *~
 
+# Claude Code worktrees (internal, large)
+.claude/worktrees/
+
 # Temp / scraping files
 fix_brands.py
 scrape_amazon.py
